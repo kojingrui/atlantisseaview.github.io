@@ -1,0 +1,326 @@
+body {
+    font-family: Arial;
+    background-image: url("shinyworld.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+
+/* Style the tab */
+
+.tab {
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 210px;
+}
+
+
+/* Style the buttons inside the tab */
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: 0.3s;
+    font-size: 17px;
+    text-align: center;
+    width: 200px;
+    margin: 5px;
+    border-radius: 100px;
+}
+
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* Create an active/current tablink class */
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+
+/* Style the tab content */
+
+.tabcontent {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+
+/* Fade in tabs */
+
+@-webkit-keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+ ::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 255), rgba(0, 150, 255), rgba(0, 50, 255));
+    border-radius: 10px;
+}
+
+.filterDiv {
+    float: left;
+    color: #ffffff;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 2px;
+    height: 50px;
+    display: none;
+    position: absolute;
+    position: fixed;
+    background-color: transparent;
+    border: none;
+    background-image: url("landmark2.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.filterDiv .active {
+    background-image: url("landmark1.png");
+}
+
+.show {
+    display: block;
+}
+
+.container {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+
+/* Style the buttons */
+
+.btn {
+    border: none;
+    outline: none;
+    width: 300;
+    height: 50;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+.flowofwaterbtn {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    background-image: url("flowofwater.png");
+    background-position: center;
+    border-radius: 10px;
+}
+
+.waterareabtn {
+    position: absolute;
+    bottom: 90px;
+    left: 10px;
+    background-image: url("waterarea.png");
+    background-position: center;
+    border-radius: 10px;
+}
+
+.sinkcitybtn {
+    position: absolute;
+    bottom: 150px;
+    left: 10px;
+    background-image: url("sink\ city.png");
+    background-position: center;
+    border-radius: 10px;
+}
+
+.all {
+    position: absolute;
+    bottom: 210px;
+    left: 10px;
+    background-image: linear-gradient(to right, orange, yellow);
+    background-position: center;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.knowledge button:hover {
+    background-color: #ddd;
+}
+
+
+/* Create an active/current knowledgelink class */
+
+.knowledge button.active {
+    background-color: #ccc;
+}
+
+
+/* Style the knowledge content */
+
+.knowledgecontent {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 30%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+/* Style the close button */
+
+.topright {
+    cursor: pointer;
+    font-size: 50px;
+    position: absolute;
+    top: -5px;
+    right: 20px;
+}
+
+.flow {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.topright:hover {
+    color: red;
+}
+
+#closebutton {
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+    position: fixed;
+    font-size: 50px;
+    color: white;
+}
+
+#closebutton:hover {
+    color: red;
+}
+
+.knowledgeitem {
+    position: relative;
+    width: 80%;
+    height: 50%;
+    background-image: url("knowledge.png");
+    background-position: center;
+    background-size: cover;
+    padding: 50px;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.knowledgetitle {
+    background-image: url("title.png");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.header {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    background-image: linear-gradient(to bottom, black, black, blue);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 60% 80%, 50% 100%, 40% 80%, 0 80%);
+}
+
+.headertext {
+    position: absolute;
+    width: 100%;
+    bottom: 40%;
+    left: 0px;
+    font-size: 48px;
+    text-align: center;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.on {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.off {
+    position: fixed;
+    bottom: 20px;
+    right: 90px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+color: white;
+
+}

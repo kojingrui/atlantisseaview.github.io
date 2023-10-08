@@ -1,0 +1,303 @@
+<html>
+
+<head>
+    <title>altantis sea view</title>
+    <link rel="stylesheet" href="nasaproject.css">
+    <link rel="icon" type="images/x-icon" href="inertia_logo.png" />
+    <script src='https://kit.fontawesome.com/2474eb437e.js' crossorigin='anonymous'></script>
+</head>
+
+<body>
+
+
+    <div id="World Map " class="tabcontent world">
+        <img src="world.jpg" width="100%" height="100%">
+
+
+        <!-- The filterable elements. Note that some have multiple class names (this can be used if they belong to multiple categories) -->
+        <div class="container">
+            <div class="filterDiv seacurrent allitem flow"><img src="sea current.jpg " width="100% " height="100% "></div>
+            <button class="filterDiv waterarea allitem map " onclick="knowledge(event, 'indian') " style="top:50%;left: 70%; "></button>
+            <button class="filterDiv waterarea allitem map " style=" top:50%;left: 45%; " onclick="knowledge(event, 'atlantic') "></button>
+            <button class="filterDiv waterarea allitem map " style=" top:35%;left: 27%; " onclick="knowledge(event, 'carribean') "></button>
+            <button class="filterDiv waterarea allitem map " style=" top:20%;left: 50%; " onclick="knowledge(event, 'mediterrean') "></button>
+            <button class="filterDiv waterarea allitem map " style=" top:50%;left: 10%; " onclick="knowledge(event, 'pacific') "></button>
+            <button class="filterDiv waterarea allitem map " style=" top:35%;left: 59%; " onclick="knowledge(event, 'red') "></button>
+            <button class="filterDiv waterarea allitem map " style=" top:5%;left: 50%; " onclick="knowledge(event, 'arctic') "></button>
+            <button class="filterDiv waterarea allitem map " style=" top:40%;left: 80%; " onclick="knowledge(event, 'southchina') "></button>
+            <button class="filterDiv waterarea allitem map " style=" top:70%;left: 50%; " onclick="knowledge(event, 'southern') "></button>
+            <button class="filterDiv citysink allitem map " style=" top:30%;left: 20%; " onclick="knowledge(event, 'mexicocity') "></button>
+            <button class="filterDiv citysink allitem map " style=" top:19%;left: 52%; " onclick="knowledge(event, 'vanice') "></button>
+            <button class="filterDiv citysink allitem map " style=" top:37%;left: 76%; " onclick="knowledge(event, 'bangkok') "></button>
+            <button class="filterDiv citysink allitem map " style=" top:22%;left: 45%; " onclick="knowledge(event, 'spain') "></button>
+
+        </div>
+        <div id="myBtnContainer">
+            <button class="btn sinkcitybtn " onclick="filterSelection( 'citysink') "> Sink City</button>
+            <button class="btn waterareabtn " onclick="filterSelection( 'waterarea') "> water area</button>
+            <button class="btn flowofwaterbtn " onclick="filterSelection( 'seacurrent') ">sea current flow</button>
+            <button class="btn all " onclick="filterSelection( 'allitem') ">show all</button>
+        </div>
+        <div id="southern" class="knowledgecontent ">
+            <div class="knowledgetitle ">Southern Ocean
+            </div>
+            <div class="knowledgeitem ">
+                <img src="southernocean.png " style="width: 250px;height: 250px; ">
+
+            </div>
+            <div class="knowledgeitem">
+                <p>&nbsp The Southern Ocean, also known as the Antarctic Ocean, is one of the Earth 's five major oceans and surrounds the continent of Antarctica. It is unique in several ways and plays a crucial role in global climate systems. Due to its
+                    unique characteristics and importance in climate systems, the Southern Ocean is a focus of scientific research. Researchers study the region's marine life, ice dynamics, and its role in regulating Earth 's climate.</p>
+            </div> <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgeitem ">Krill <img src="krill_creaturesinsouthernocean.png " style="width: 250px;height: 250px; ">
+            </div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="carribean" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Carribean Sea</div>
+            <div class="knowledgeitem "> <img src="caribbeansea.png " style="width: 250px;height: 250px; ">
+            </div>
+            <div class="knowledgeitem" style="font-size: 12px; "> The Caribbean Sea is a vast body of water located in the western part of the Atlantic Ocean, nestled between the Caribbean islands and the eastern coast of Central America and South America. It spans approximately 1,063,000 square miles (2,754,000
+                square kilometers) and is renowned for its stunning turquoise waters and warm, tropical climate. The sea is home to a diverse array of marine life, including colorful coral reefs, vibrant fish species, and endangered sea turtles. It plays
+                a vital role in the region's economy, supporting tourism, fisheries, and trade. The Caribbean Sea's cultural significance is also reflected in the rich history of the Caribbean islands that surround it.</div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="atlantic" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Atlantic Ocean</div>
+            <div class="knowledgeitem "> <img src="atlanticocean.png " style="width: 250px;height: 250px; ">
+            </div>
+            <div class="knowledgeitem "> The Atlantic Ocean is one of the world's major oceans and is known for its vast expanse, diverse ecosystems, and historical significance. The Atlantic Ocean is the second-largest of the world's five major oceans, covering an area of approximately
+                106.4 million square kilometers (41.1 million square miles).</div>
+            <div class="knowledgeitem ">Bottlenose Dolphin<img src="bottlenosedolphins_creaturesinatlanticocean.png " style="width: 250px;height: 250px; ">
+            </div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="arctic" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Arctic Ocean</div>
+            <div class="knowledgeitem "> <img src="arcticocean.png " style="width: 250px;height: 250px; ">
+            </div>
+            <div class="knowledgeitem ">Arctic Cod<img src="arcticcod_creaturesinarcticocean.png " style="width: 250px;height: 250px; ">
+            </div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="mediterrean" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Mediterrean Sea</div>
+            <div class="knowledgeitem "> <img src="mediterraneansea.png " style="width: 250px;height: 250px; ">
+            </div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="pacific" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Pacific Sea</div>
+            <div class="knowledgeitem "> <img src="pacificocean.png " style="width: 250px;height: 250px; ">
+            </div>
+            <div class="knowledgeitem ">Rock Hopper Penguins<img src="rockhopperpenguins.png " style="width: 250px;height: 250px; ">
+            </div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="indian" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Indian Ocean</div>
+            <div class="knowledgeitem "> <img src="indianocean.png " style="width: 250px;height: 250px; ">
+            </div>
+            <div class="knowledgeitem ">
+                The Indian Ocean is one of the world's major oceans, known for its vast expanse, diverse coastal regions, and significant influence on global climate and trade. The Indian Ocean is situated in the eastern hemisphere and extends between the eastern coast
+                of Africa, the western coast of Australia, the southern coast of Asia, and the northern coast of Antarctica. It covers approximately 70.56 million square kilometers (27.24 million square miles), making it the third-largest ocean on Earth.
+            </div>
+            <div class="knowledgeitem ">Giant Clam<img src="giantclam_creaturesinindianocean.png " style="width: 250px;height: 250px; ">
+            </div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="red" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Red Sea</div>
+            <div class="knowledgeitem "> <img src="redsea.png " style="width: 250px;height: 250px; ">
+            </div>
+            <div class="knowledgeitem " style="font-size: 12px; ">The Red Sea is a narrow, elongated body of water located in the Middle East, between the northeastern African continent and the Arabian Peninsula. Spanning approximately 1,200 miles (1,900 kilometers) in length and 190 miles (306 kilometers)
+                at its widest point, it is renowned for its striking reddish-brown appearance, attributed to the presence of red-hued microorganisms and algae. The Red Sea is a vital trade route, connecting the Mediterranean Sea to the Indian Ocean, facilitating
+                commerce between Europe, Asia, and Africa. It is also famous for its remarkable biodiversity, with diverse coral reefs and marine life, making it a popular destination for scuba diving and tourism. </div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="southchina" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">South China Sea
+            </div>
+            <div class="knowledgeitem "> <img src="southchinasea.png " style="width: 250px;height: 250px; ">
+            </div>
+            <div class="knowledgeitem " style="font-size: 12px; ">The South China Sea is a highly disputed and strategically significant body of water in Southeast Asia. Covering an area of about 1.4 million square miles (3.6 million square kilometers), it is bordered by China, Vietnam, the Philippines,
+                Malaysia, Brunei, and Taiwan. The region is rich in natural resources, including oil and natural gas, and is a vital shipping route for global trade. However, territorial disputes among neighboring countries, particularly China's expansive
+                claims, have led to tensions and conflicts. The South China Sea is a focal point in international geopolitics, with ongoing disputes over sovereignty, freedom of navigation, and the potential for military confrontations.</div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="southchina" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">South China Sea
+            </div>
+            <div class="knowledgeitem "> <img src="southchinasea.png " style="width: 250px;height: 250px; ">
+            </div>
+            <div class="knowledgeitem " style="font-size: 12px; ">The South China Sea is a highly disputed and strategically significant body of water in Southeast Asia. Covering an area of about 1.4 million square miles (3.6 million square kilometers), it is bordered by China, Vietnam, the Philippines,
+                Malaysia, Brunei, and Taiwan. The region is rich in natural resources, including oil and natural gas, and is a vital shipping route for global trade. However, territorial disputes among neighboring countries, particularly China's expansive
+                claims, have led to tensions and conflicts. The South China Sea is a focal point in international geopolitics, with ongoing disputes over sovereignty, freedom of navigation, and the potential for military confrontations.</div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="vanice" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Vanice
+            </div>
+            <div class="knowledgeitem " style="font-size: 12px; ">Acqua alta, the high tide phenomenon that periodically takes place in the city, together with the precariousness of its foundations, means every year Venice sinks by about 2 mm. Nevertheless, and even though experts have been warning for years
+                that Venice will disappear underwater in a century (a study done by ENEA predicts that Venice could disappear in just one century, because the Mediterranean Sea is expected to rise by about 140 centimetres before 2100), sea level rise
+                is not the city's only problem. Ironically, as Águeda García de Durango already told us about, the 'City of Canals' is running dry. In 2018, for the second year in a row, the city experienced historically low tidal levels, curtailing transport
+                as canals were left without water.</div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="mexicocity" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Mexico City </div>
+            <div class="knowledgeitem " style="font-size: 12px; ">Whereas climate change threatens the Mexican capital with an unprecedented environmental crisis, it is not the only problem it will have to contend with. Water issues in Mexico City stem from poor urban planning and the inefficient use of
+                water and sanitation services. In addition, the water demand has increased due to population growth in the region, leading to the overexploitation of groundwater resources. Thus, and given its location in the Valley of Mexico, the city
+                has sunk between 8 and 12 centimetres every year, according to researchers from the National Autonomous University of Mexico (UNAM).</div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="bangkok" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Bangkok</div>
+            <div class="knowledgeitem " style="font-size: 12px; ">The floods brought about by monsoons mean Bangkok is gradually sinking every year (particularly the outskirts). But Bangkok is a constantly changing city and its business districts continue to grow. The huge skyscrapers built on soil unsuitable
+                for such buildings, as well as road construction, have an effect on the progressive sinking of the city. Not to mention illegal groundwater abstraction, which causes the city to sink between 10 and 20 mm every year.</div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+        <div id="spain" class="knowledgecontent ">
+            <span onclick="this.parentElement.style.display='none ' " class="topright ">&times</span>
+            <div class="knowledgetitle ">Spain</div>
+            <div class="knowledgeitem " style="font-size: 12px; ">The population in Spain concentrates on coastal areas, thus it is also exposed to sea level rise. According to the ABC newspaper, 'in Spain, even though only 1% of the land surface is at or below 6 m of elevation, those areas are home to 6%
+                of the total population'. Therefore, cities such as Bilbao, Alicante, Santander, Santa Cruz de Tenerife and Las Palmas will be the first candidates to be underwater.</div>
+            <span onclick="this.parentElement.style.display='none' " class="topright ">&times</span>
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+    <div id="Climate Change " class="tabcontent ">
+        <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform; ">
+            <iframe loading="lazy " style="position: absolute; width: 100%; height: 90%; top: 0; left: 0; border: none; padding: 0;margin: 0; " src="try.html " allowfullscreen="allowfullscreen " allow="fullscreen ">
+            </iframe>
+        </div>
+
+    </div>
+
+    <div id="Water Cycle " class="tabcontent ">
+        <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%; padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform; ">
+            <iframe loading="laz " style="position: absolute; width: 100%; height: 90%; top: 0; left: 0; border: none; padding: 0;margin: 0; " src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAFwjdknq6M&#x2F;watch?embed " allowfullscreen="allowfullscreen
+                " allow="fullscreen ">
+         </iframe>
+        </div>
+    </div>
+    <div class="tab ">
+        <button class="tablinks " onclick="openCity(event, 'World Map ') ">World Map</button>
+        <button class="tablinks " onclick="openCity(event, 'Climate Change ') ">Climate Change</button>
+        <button class="tablinks " onclick="openCity(event, 'Water Cycle ') ">Water Cycle</button>
+    </div>
+    <audio id="myAudio" loop autoplay>
+        <source src="bgm.mp3" type="audio/ogg">
+        <source src="bgm.mp3" type="audio/mpeg">
+      </audio>
+
+    <video id="myVideo" width="100% " height="100% " controls autoplay>
+        <source src="op.mp4" type="video/mp4 "
+>
+    </video>
+    <span id="closeButton">&times;</span>
+    <script>
+        var video = document.getElementById("myVideo");
+        var close = document.getElementById("closeButton");
+
+
+        close.addEventListener("click", function() {
+            video.pause();
+            video.style.display = "none";
+            close.style.display = "none";
+        });
+
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent ");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none ";
+            }
+            tablinks = document.getElementsByClassName("tablinks ");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active ", " ");
+            }
+            document.getElementById(cityName).style.display = "block ";
+            evt.currentTarget.className += " active ";
+        }
+
+
+        filterSelection("all ")
+
+        function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("filterDiv ");
+            if (c == "all ") c = " ";
+            for (i = 0; i < x.length; i++) {
+                w3RemoveClass(x[i], "show ");
+                if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show ");
+            }
+        }
+
+        function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                if (arr1.indexOf(arr2[i]) == -1) {
+                    element.className += " " + arr2[i];
+                }
+            }
+        }
+
+        function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+                while (arr1.indexOf(arr2[i]) > -1) {
+                    arr1.splice(arr1.indexOf(arr2[i]), 1);
+                }
+            }
+            element.className = arr1.join(" ");
+        }
+
+        // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer ");
+        var btns = btnContainer.getElementsByClassName("btn ");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click ", function() {
+                var current = document.getElementsByClassName("active1 ");
+                current[0].className = current[0].className.replace(" active1 ", " ");
+                this.className += " active1 ";
+            });
+        }
+
+        function knowledge(evt, place) {
+            var i, knowledgecontent, links;
+            knowledgecontent = document.getElementsByClassName("knowledgecontent ");
+            for (i = 0; i < knowledgecontent.length; i++) {
+                knowledgecontent[i].style.display = "none ";
+            }
+            knowledgelinks = document.getElementsByClassName("knowledgelinks ");
+            for (i = 0; i < knowledgelinks.length; i++) {
+                knowledgelinks[i].className = knowledgelinks[i].className.replace(" active ", " ");
+            }
+            document.getElementById(place).style.display = "block ";
+            evt.currentTarget.className += " active ";
+        }
+    </script>
+
+</body>
+
+</html>

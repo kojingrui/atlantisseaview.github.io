@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+        
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        
+        .mySlides {
+            display: none
+        }
+        
+        img {
+            vertical-align: middle;
+        }
+        /* Slideshow container */
+        
+        .slideshow-container {
+            width: 100%;
+            height: 80%;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+        /* Next & previous buttons */
+        
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 55%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        /* Position the "next button" to the right */
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        /* On hover, add a black background color with a little bit see-through */
+        
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        /* Caption text */
+        
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        /* Number text (1/3 etc) */
+        
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        /* The dots/bullets/indicators */
+        
+        .dotbox {
+            position: absolute;
+            bottom: -40%;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+        /* Fading animation */
+        
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+            to {
+                opacity: 1
+            }
+        }
+        /* On smaller screens, decrease text size */
+        
+        @media only screen and (max-width: 300px) {
+            .prev,
+            .next,
+            .text {
+                font-size: 11px
+            }
+        }
+        
+        .header {
+            top: 0px;
+            left: 0px;
+            position: absolute;
+            width: 100%;
+            height: 30%;
+            background-image: linear-gradient(to bottom, black, black, blue);
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 60% 80%, 50% 100%, 40% 80%, 0 80%);
+        }
+        
+        .headertext {
+            position: absolute;
+            width: 100%;
+            bottom: 40%;
+            left: 0px;
+            font-size: 48px;
+            text-align: center;
+            color: white;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 10px;
+        }
+        /* Track */
+        
+         ::-webkit-scrollbar-track {
+            border-radius: 10px;
+        }
+        /* Handle */
+        
+         ::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 255), rgba(0, 150, 255), rgba(0, 50, 255));
+            border-radius: 10px;
+        }
+        
+        .tab {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+        }
+        
+        .tab button {
+            background-color: inherit;
+            float: left;
+            position: relative;
+            margin: 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            width: 340px;
+            height: 200px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+        
+        .tabup {
+            background-image: url('tab.png');
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            height: 100%;
+        }
+        
+        .tabup p {
+            position: absolute;
+            top: 60%;
+            left: 0px;
+            text-align: center;
+            width: 100%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        .tab button:hover {
+            filter: contrast(200%);
+        }
+        /* Create an active/current tablink class */
+        /* Style the tab content */
+        
+        .tabcontent {
+            display: none;
+            position: absolute;
+            top: 10%;
+            left: 30%;
+            width: 40%;
+            height: 120%;
+            background-image: url('tabcontent.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            padding: 30px 80px;
+            color: chocolate;
+            overflow-y: scroll;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        /* Style the close button */
+        
+        .topright {
+            float: right;
+            cursor: pointer;
+            position: absolute;
+            top: 0px;
+            right: 20px;
+            font-size: 50px;
+            color: chocolate;
+        }
+        
+        .topright:hover {
+            color: red;
+        }
+        
+        .h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="digitalworld.jpg" width="100%" height="100%">
+    <img src="digitalworld.jpg" width="100%" height="100%" position="absolute" top="100%">
+    <div class="header">
+        <div class="headertext"><b><i>Climate Change</i></b></div>
+    </div>
+    <div class="slideshow-container">
+
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <div class="tab">
+                <button class="tablinks" onclick="openCity(event, '1')">       <img src="c2.jfif" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Causes of Climate Change</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '2')"><img src="co2.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;">><img src="co2.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;">
+                <div
+                    class="tabup">
+                    <p>Greenhouse Gases</p>
+            </div>
+            </button>
+                <button class="tablinks" onclick="openCity(event, '3')" <img src="c3.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;">><div class="tabup"><p>Human Activites</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '4')">                <img src="shutterstock_285980522.webp" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Evidence of climate Change</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '5')"><img src="Picture5.png"style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Global Temperature is Rising</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '6')"><img src="Picture6.jpg"style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>The Ocean is Getting Warmer</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '7')"><img src="Picture7.jpg"style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>The Ice Sheets Are Shrinking</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '8')"><img src="Picture9.jpg"style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Glaciers are Retreating</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '9')"> <img src="Picture8.jpg"style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Snow Cover is Decreasing</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '10')"><img src="Picture10.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Sea Level is rising</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '11')"><img src="Picture11.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Arctic Sea Ice Is Declining</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '12')"><img src="Picture12.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Extreme Events Are Increasing in Frequency </p></div></button>
+                <button class="tablinks" onclick="openCity(event, '13')"><img src="Picture13.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Ocean Acidification Is Increasing </p></div></button>
+                <button class="tablinks" onclick="openCity(event, '14')"><img src="Picture14.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Effects of climate change</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '15')"><img src="Picture15.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>Future effects of global climate change in the United States</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '16')"><img src="Picture16.jpg" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>solutions on climate change</p></div></button>
+                <button class="tablinks" onclick="openCity(event, '17')">                <img src="Picture21.png" style="position:absolute;top:0px;left:0px;width:100%;height:100%;"><div class="tabup"><p>options for responding to climate change.</p></div></button>
+
+
+            </div>
+
+            <div id="1" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Cause of Climate Change</h3>
+                <p>Scientists attribute the global warming trend observed since the mid-20th century to the human expansion of the "greenhouse effect"1 — warming that results when the atmosphere traps heat radiating from Earth toward space.</p>
+
+                <p> Life on Earth depends on energy coming from the Sun. About half the light energy reaching Earth's atmosphere passes through the air and clouds to the surface, where it is absorbed and radiated in the form of infrared heat. About 90% of
+                    this heat is then absorbed by greenhouse gases and re-radiated, slowing heat loss to space.</p>
+            </div>
+
+            <div id="2" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>5 Gases that contribute to Greenhouse Effect</h3>
+                <br>
+                <h3>Carbon Dioxide</h3>
+                <p>Like many atmospheric gases, methane comes from both natural and human-caused sources. Methane comes from plant-matter breakdown in wetlands and is also released from landfills and rice farming. Livestock animals emit methane from their digestion and
+                    manure. Leaks from fossil fuel production and transportation are another major source of methane, and natural gas is 70% to 90% methane.</p>
+                <br>
+                <h3>Methane</h3>
+                <p>Like many atmospheric gases, methane comes from both natural and human-caused sources. Methane comes from plant-matter breakdown in wetlands and is also released from landfills and rice farming. Livestock animals emit methane from their digestion and
+                    manure. Leaks from fossil fuel production and transportation are another major source of methane, and natural gas is 70% to 90% methane.</p>
+                <br>
+                <h3>Nitrous Oxide</h3>
+                <p>
+                    A potent greenhouse gas produced by farming practices, nitrous oxide is released during commercial and organic fertilizer production and use. Nitrous oxide also comes from burning fossil fuels and burning vegetation and has increased by 18% in the last
+                    100 years.</p>
+                <br>
+                <h3>Chlorofluorocarbons (CFCs)</h3>
+                <p>Over the last century, burning of fossil fuels like coal and oil has increased the concentration of atmospheric carbon dioxide (CO2). This increase happens because the coal or oil burning process combines carbon with oxygen in the air
+                    to make CO2. To a lesser extent, clearing of land for agriculture, industry, and other human activities has increased concentrations of greenhouse gases.</p>
+            </div>
+
+            <div id="3" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Human Activity Is the Cause of Increased Greenhouse Gas Concentrations</h3>
+                <p>Over the last century, burning of fossil fuels like coal and oil has increased the concentration of atmospheric carbon dioxide (CO2). This increase happens because the coal or oil burning process combines carbon with oxygen in the air
+                    to make CO2. To a lesser extent, clearing of land for agriculture, industry, and other human activities has increased concentrations of greenhouse gases.</p>
+            </div>
+
+            <div id="4" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Evidence of climate Change</h3>
+                <p>While Earth’s climate has changed throughout its history, the current warming is happening at a rate not seen in the past 10,000 years.</p>
+                <p>According to the Intergovernmental Panel on Climate Change (IPCC), "Since systematic scientific assessments began in the 1970s, the influence of human activity on the warming of the climate system has evolved from theory to established
+                    fact."
+                </p>
+
+                <p>Scientific information taken from natural sources (such as ice cores, rocks, and tree rings) and from modern equipment (like satellites and instruments) all show the signs of a changing climate.</p>
+                <p>From global temperature rise to melting ice sheets, the evidence of a warming planet abounds. </p>
+
+            </div>
+            <div id="5" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Global Temperature Is Rising</h3>
+                <p>The planet's average surface temperature has risen about 2 degrees Fahrenheit (1 degrees Celsius) since the late 19th century, a change driven largely by increased carbon dioxide emissions into the atmosphere and other human activities.
+                    Most of the warming occurred in the past 40 years, with the seven most recent years being the warmest. The years 2016 and 2020 are tied for the warmest year on record.</p>
+            </div>
+            <div id="6" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>The Ocean is Getting Warmer</h3>
+                <p>The ocean has absorbed much of this increased heat, with the top 100 meters (about 328 feet) of ocean showing warming of 0.67 degrees Fahrenheit (0.33 degrees Celsius) since 1969.6 Earth stores 90% of the extra energy in the ocean.</p>
+            </div>
+            <div id="7" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>The Ice Sheets are Shrinking</h3>
+                <p>
+                    The Greenland and Antarctic ice sheets have decreased in mass. Data from NASA's Gravity Recovery and Climate Experiment show Greenland lost an average of 279 billion tons of ice per year between 1993 and 2019, while Antarctica lost about 148 billion tons
+                    of ice per year.</p>
+
+            </div>
+            <div id="8" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Glaciers Are Retreating</h3>
+                <p>Glaciers are retreating almost everywhere around the world — including in the Alps, Himalayas, Andes, Rockies, Alaska, and Africa.</p>
+            </div>
+            <div id="9" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Snow Cover is decreasing</h3>
+                <p>Satellite observations reveal that the amount of spring snow cover in the Northern Hemisphere has decreased over the past five decades and the snow is melting earlier. </p>
+            </div>
+
+
+
+            <div id="10" class="tabcontent">
+
+                <h3>Sea Level Is Rising </h3>
+                <p> Global sea level rose about 8 inches (20 centimeters) in the last century. The rate in the last two decades, however, is nearly double that of the last century and accelerating slightly every year.</p>
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            </div>
+            <div id="11" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Arctic Sea Ice Is Declining </h3>
+                <p>Both the extent and thickness of Arctic sea ice has declined rapidly over the last several decades.</p>
+            </div>
+            <div id="12" class="tabcontent">
+
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Extreme Events Are Increasing in Frequency </h3>
+                <p>The number of record high temperature events in the United States has been increasing, while the number of record low temperature events has been decreasing, since 1950. The U.S. has also witnessed increasing numbers of intense rainfall
+                    events..
+                </p>
+            </div>
+            <div id="13" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <h3>Ocean Acidification Is Increasing </h3>
+
+                <p>
+                    The ocean has absorbed between 20% and 30% of total anthropogenic carbon dioxide emissions in recent decades (7.2 to 10.8 billion metric tons per year).</p>
+            </div>
+            <div id="14" class="tabcontent"> <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+
+                <h3>Effects of climate change </h3>
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <p>Global climate change is not a future problem. Changes to Earth's climate driven by increased human emissions of heat-trapping greenhouse gases are already having widespread effects on the environment: glaciers and ice sheets are shrinking,
+                    river and lake ice is breaking up earlier, plant and animal geographic ranges are shifting, and plants and trees are blooming sooner.</p>
+                <p>Effects that scientists had long predicted would result from global climate change are now occurring, such as sea ice loss, accelerated sea level rise, and longer, more intense heat waves.</p>
+                <p>The severity of effects caused by climate change will depend on the path of future human activities. More greenhouse gas emissions will lead to more climate extremes and widespread damaging effects across our planet. However, those future
+                    effects depend on the total amount of carbon dioxide we emit. So, if we can reduce emissions, we may avoid some of the worst effects.</p>
+            </div>
+            <div id="15" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+
+                <h3>Future effects of global climate change in the United States: </h3>
+                <p>U.S. Sea Level Likely to Rise 1 to 6.6 Feet by 2100</p>
+                <p>Global sea level has risen about 8 inches (0.2 meters) since reliable record-keeping began in 1880. By 2100, scientists project that it will rise at least another foot (0.3 meters), but possibly as high as 6.6 feet (2 meters) in a high-emissions
+                    scenario. Sea level is rising because of added water from melting land ice and the expansion of seawater as it warms.</p>
+                <p>Climate Changes Will Continue Through This Century and Beyond</p>
+                <p>Global climate is projected to continue warming over this century and beyond.</p>
+                <p>Hurricanes Will Become Stronger and More Intense</p>
+                <p>Scientists project that hurricane-associated storm intensity and rainfall rates will increase as the climate continues to warm.</p>
+                <p>More Droughts and Heat Waves.</p>
+                <p>Droughts in the Southwest and heat waves (periods of abnormally hot weather lasting days to weeks) are projected to become more intense, and cold waves less intense and less frequent.</p>
+                <p>Longer Wildfire Season</p>
+                <p>Warming temperatures have extended and intensified wildfire season in the West, where long-term drought in the region has heightened the risk of fires. Scientists estimate that human-caused climate change has already doubled the area of
+                    forest burned in recent decades. By around 2050, the amount of land consumed by wildfires in Western states is projected to further increase by two to six times. Even in traditionally rainy regions like the Southeast, wildfires are
+                    projected to increase by about 30%.</p>
+                <p>Changes in Precipitation Patterns</p>
+                <p>Climate change is having an uneven effect on precipitation (rain and snow) in the United States, with some locations experiencing increased precipitation and flooding, while others suffer from drought. On average, more winter and spring
+                    precipitation is projected for the northern United States, and less for the Southwest, over this century.</p>
+                <p>Frost-Free Season (and Growing Season) will Lengthen</p>
+                <p>The length of the frost-free season, and the corresponding growing season, has been increasing since the 1980s, with the largest increases occurring in the western United States. Across the United States, the growing season is projected
+                    to continue to lengthen, which will affect ecosystems and agriculture.</p>
+                <p>Global Temperatures Will Continue to Rise</p>
+                <p>Summer of 2023 was Earth's hottest summer on record, 0.41 degrees Fahrenheit (F) (0.23 degrees Celsius (C)) warmer than any other summer in NASA’s record and 2.1 degrees F (1.2 C) warmer than the average summer between 1951 and 1980.</p>
+                <p>Arctic Is Very Likely to Become Ice-Free</p>
+                <p>Sea ice cover in the Arctic Ocean is expected to continue decreasing, and the Arctic Ocean will very likely become essentially ice-free in late summer if current projections hold. This change is expected to occur before mid-century.</p>
+            </div>
+        </div>
+
+        <div id="16" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <h3>solutions on climate change</h3>
+            <p>NASA is an expert in climate and Earth science. While its role is not to set climate policy or prescribe particular responses or solutions to climate change, its job does include providing the scientific data needed to understand climate change.
+                NASA then makes this information available to the global community – the public, policy-, and decision-makers and scientific and planning agencies around the world. (For more information, see NASA's role.)</p>
+            <p>With that said, NASA takes sustainability very seriously. NASA's sustainability policy is to execute its mission as efficiently as possible. In doing so, we continually improve our space and ground operations.</p>
+            <p>Sustainability involves taking action now to protect the environment for both current and future living conditions. In implementing sustainability practices, NASA supports its missions by reducing risks to the environment and our communities.
+            </p>
+            <p>Global climate is projected to continue warming over this century and beyond.</p>
+            <p>In executing its mission, NASA's sustainability objectives are to:</p>
+            <ul>
+                <li>increase energy efficiency</li>
+                <li>increase the use of renewable energy</li>
+                <li> measure, report, and reduce NASA's direct and indirect greenhouse gas emissions</li>
+                <li>conserve and protect water resources through efficiency, reuse, and stormwater management</li>
+                <li>eliminate waste, prevent pollution, and increase recycling;</li>
+            </ul>
+        </div>
+        <div id="17" class="tabcontent">
+            <h3> The following selected resources from U.S. government organizations provide information about options for responding to climate change.</h3>
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+            <p>Climate Data Initiative</p>
+            <p>Data related to climate change that can help inform and prepare America's communities, businesses and citizens.</p>
+            <p>U.S. Climate Resilience Toolkit</p>
+            <p>Provides scientific tools, information and expertise to help people manage their climate-related risks and opportunities, and improve their resilience to extreme events.</p>
+            <p>National Oceanic and Atmospheric Administration </p>
+            <p>From supercomputers and state-of-the-art models to observations and outlooks, this site provides data, tools and information to help people understand and prepare for climate variability and change.</p>
+            <p>U.S. Department of Energy</p>
+            <p>Describes strategies currently being pursued or considered to reduce carbon emissions and address global climate change.</p>
+            <p>Environmental Protection Agency</p>
+            <p>Tools for learning and understanding environmental issues and recommendations for greener living.</p>
+            <p>U.N. Framework on Climate Change</p>
+            <p>United Nations Framework Convention on Climate Change Online newsletter concerning issues about the U.N.'s convention on long-term climate change</p>
+
+        </div>
+
+    </div>
+
+
+
+
+    </div>
+    <br>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace("active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace("active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        var x = document.getElementById("myAudio");
+
+        function playAudio() {
+            x.play();
+        }
+
+        function pauseAudio() {
+            x.pause();
+        }
+    </script>
+
+</body>
+
+</html>
+
+</html>
